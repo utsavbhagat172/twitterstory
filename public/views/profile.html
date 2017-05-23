@@ -1,0 +1,39 @@
+
+<div class="container" ng-controller="UserController as userCtrlVM">
+	<div class="row">
+		<div class="col-xs-12 offset-md-4 col-md-4 offset-sm-2 col-sm-4">
+			<div class="card text-center">
+			 <h4 class="card-title">User Details</h4>
+			 <div class="card-block">
+			  <h6 class="text-muted">Username: {{userCtrlVM.user.username}}</h6>
+			  <h6 class="text-muted">Display Name: {{userCtrlVM.user.displayName}}</h6>
+			  <h6 class="text-muted">User Id: {{userCtrlVM.user.twitterID}}</h6>
+			  <button ng-click="userCtrlVM.logout()" class="btn btn-secondary btn-sm pointer">Logout</button>
+			 </div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="container">
+	<div class="row">
+		<div class="col-xs-12 col-sm-8" ng-controller="TweetsController as tweetsCtrlVM">
+			<div class="card text-center">
+			 <h4 class="card-title">Recent Tweets with Urls</h4>
+			 <div class="card-block" ng-repeat="tweet in tweetsCtrlVM.tweets">
+			 	<h6 class="text-left">{{tweet.owner_name}} @{{tweet.owner_screen_name}}</h6>
+			  <h6 class="text-muted">{{tweet.tweet_text}}</h6>
+			 </div>
+			</div>
+		</div>
+		<div class="col-xs-12 col-sm-4">
+			<div class="card text-center">
+			 <h4 class="card-title">All Users</h4>
+			 <div class="card-block" ng-repeat="user in userCtrlVM.allUsers">
+			  <h6 class="text-muted">Username: {{user.username}}</h6>
+			  <h6 class="text-muted">Display Name: {{user.displayName}}</h6>
+			  <h6 class="text-muted">Shared {{user.count}} urls</h6>
+			 </div>
+			</div>
+		</div>
+	</div>
+</div>
